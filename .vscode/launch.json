@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "MiniLM Cleaner",
+      "type": "python",
+      "request": "launch",
+      "module": "ai_ingredients.dataset_normalizer",
+      "justMyCode": true,
+      "args": [
+        "--dataset",
+        "dataset/Food Ingredients and Recipe Dataset with Image Name Mapping.csv",
+        "--output",
+        "dataset/cleaned_ingredients.json"
+      ],
+      "python": "${workspaceFolder}/.venv/bin/python"
+    }
+  ]
+}

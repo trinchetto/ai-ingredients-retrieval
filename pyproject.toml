@@ -1,0 +1,26 @@
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "ai-ingredients-retrieval"
+version = "0.1.0"
+description = "Utilities for normalizing ingredient mentions with local LLMs."
+readme = "README.md"
+license = "MIT"
+authors = ["Marco Trincavelli <trinchetto@gmail.com>"]
+packages = [{ include = "ai_ingredients", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+pandas = ">=2.2"
+requests = ">=2.32"
+tqdm = ">=4.66"
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.4"
+mypy = ">=1.10"
+
+[tool.poetry.scripts]
+normalize-ingredients = "ai_ingredients.ollama_normalizer:main"
+normalize-ingredients-dataset = "ai_ingredients.dataset_normalizer:main"
