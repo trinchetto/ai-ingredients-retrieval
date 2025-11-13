@@ -54,3 +54,19 @@ poetry run normalize-ingredients-dataset
 Additional flags let you pick an alternate column, Ollama model, temperature,
 `num-predict`, API URL, or request timeout. The output JSON mirrors the input structure
 but with each entry normalized by the LLM.
+
+## Ingredient clustering
+
+Once you have `dataset/normalized_ingredients.json`, you can cluster lexical variations
+into canonical groups using FAISS K-means:
+
+```bash
+poetry run cluster-ingredients \
+  --normalized-json dataset/normalized_ingredients.json \
+  --clusters 64 \
+  --output dataset/ingredient_clusters.jsonl
+```
+
+The generated JSONL file contains one cluster per line, where the `centroid` value is the
+closest ingredient to the cluster center and `members` collects every variation assigned
+to that cluster.
