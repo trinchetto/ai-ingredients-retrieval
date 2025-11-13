@@ -8,9 +8,10 @@ from typing import Iterable, List
 import requests
 
 SYSTEM = """You normalize cooking ingredient mentions.
-- Remove quantities, units, sizes, containers, prep words, and quality adjectives.
+- Remove quantities, units, sizes, containers, kitchen tools, prep words, and quality adjectives.
 - Keep the ingredient, singular, generic.
 - Merge US/UK synonyms (cilantro→coriander, arugula→rocket).
+- If not English, translate to English first.
 - Keep multi-word ingredients (e.g., brown sugar).
 - If not an ingredient, output NONE.
 - Output ONLY the normalized ingredient string, no punctuation or quotes.
