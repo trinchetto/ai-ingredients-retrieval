@@ -65,8 +65,22 @@ poetry run cluster-ingredients \
   --normalized-json dataset/normalized_ingredients.json \
   --clusters 64 \
   --output dataset/ingredient_clusters.jsonl
+
+# Automatically select the cluster count (uses --clusters as the upper bound)
+poetry run cluster-ingredients \
+  --normalized-json dataset/normalized_ingredients.json \
+  --clusters 64 \
+  --min-clusters 4 \
+  --auto-clusters \
+  --output dataset/ingredient_clusters.jsonl
 ```
 
 The generated JSONL file contains one cluster per line, where the `centroid` value is the
 closest ingredient to the cluster center and `members` collects every variation assigned
 to that cluster.
+
+To estimate a good cluster count automatically, call
+`ai_ingredients.ingredient_clusterer.determine_optimal_clusters()` with your normalized
+ingredient list. It evaluates cluster sizes between `min_clusters` and the provided
+max, prints each silhouette score, and returns the best candidate so you can feed it
+back into the CLI (or your own pipeline).
