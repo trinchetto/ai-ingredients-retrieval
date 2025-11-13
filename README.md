@@ -1,6 +1,6 @@
 # ai-ingredients-retrieval
 
-![Test Coverage](https://codecov.io/gh/trinchetto/ai-ingredients-retrieval/branch/main/graph/badge.svg)
+![Test Coverage](./coverage.svg)
 
 Skeleton utilities for normalizing noisy ingredient strings with a locally running
 [Ollama](https://ollama.com) model (default: `phi3:mini`). The project is packaged with
