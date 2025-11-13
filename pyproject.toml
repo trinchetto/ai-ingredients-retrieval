@@ -20,6 +20,10 @@ tqdm = ">=4.66"
 [tool.poetry.group.dev.dependencies]
 ruff = ">=0.4"
 mypy = ">=1.10"
+pytest = ">=8.2"
+types-requests = ">=2.32"
+pandas-stubs = ">=2.2"
+types-tqdm = ">=4.66"
 
 [tool.poetry.scripts]
 normalize-ingredients = "ai_ingredients.ollama_normalizer:main"

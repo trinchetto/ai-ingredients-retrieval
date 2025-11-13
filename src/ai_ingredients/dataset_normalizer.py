@@ -6,12 +6,16 @@ import argparse
 import json
 from ast import literal_eval
 from pathlib import Path
-from typing import Iterable, List
+from typing import Iterable
 
 import pandas as pd
 from tqdm import tqdm
 
-from ai_ingredients.ollama_normalizer import DEFAULT_API_URL, normalize_with_llm, preclean
+from ai_ingredients.ollama_normalizer import (
+    DEFAULT_API_URL,
+    normalize_with_llm,
+    preclean,
+)
 
 
 def load_cleaned_ingredients(
@@ -83,7 +87,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dataset",
         type=Path,
-        default=Path("dataset/Food Ingredients and Recipe Dataset with Image Name Mapping.csv"),
+        default=Path(
+            "dataset/Food Ingredients and Recipe Dataset with Image Name Mapping.csv"
+        ),
         help="CSV file containing the Cleaned_Ingredients column.",
     )
     parser.add_argument(
