@@ -16,6 +16,8 @@ python = ">=3.12,<4.0"
 pandas = ">=2.2"
 requests = ">=2.32"
 tqdm = ">=4.66"
+faiss-cpu = ">=1.8"
+scikit-learn = ">=1.5"
 
 [tool.poetry.group.dev.dependencies]
 ruff = ">=0.4"
@@ -30,3 +32,4 @@ coverage-badge = ">=1.1"
 [tool.poetry.scripts]
 normalize-ingredients = "ai_ingredients.ollama_normalizer:main"
 normalize-ingredients-dataset = "ai_ingredients.dataset_normalizer:main"
+cluster-ingredients = "ai_ingredients.ingredient_clusterer:main"
