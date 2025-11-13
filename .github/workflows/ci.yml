@@ -31,5 +31,11 @@ jobs:
       - name: Run mypy
         run: poetry run mypy .
 
-      - name: Run unit tests
-        run: poetry run pytest
+      - name: Run unit tests with coverage
+        run: poetry run pytest --cov=ai_ingredients --cov-report=term --cov-report=xml
+
+      - name: Generate coverage badge
+        run: poetry run coverage-badge -o coverage.svg -f
+
+      - name: Ensure coverage badge committed
+        run: git diff --exit-code coverage.svg
